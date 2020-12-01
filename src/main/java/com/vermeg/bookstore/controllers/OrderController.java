@@ -43,7 +43,7 @@ public class OrderController {
 //        }else {
 		order.setOrderDate(LocalDate.now());
 		orderRepository.save(order);
-		return "redirect:list";
+		return "redirect:/accounts/dashboard";
 //        }
 
 	}
