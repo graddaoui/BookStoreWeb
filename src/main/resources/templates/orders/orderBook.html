@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Order Books</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+	crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="../css/shards.min.css"> -->
+</head>
+<body>
+	<div class="container my-5">
+		<h3 style="text-align: center; color: #85144b;" class="display-4">
+			Order a book</h3>
+		<div class="card">
+			<div class="card-body">
+				<div class="col-md-10">
+					<form action="#" th:action="@{/orders/add}" th:object="${newOrder}"
+						method="post">
+						<div class="row">
+
+							<div class="form-group col-md-8">
+								<label for="books" class="col-form-label">Choose a book</label> <select
+									class="form-control" th:field="*{books}" id="books"
+									multiple="multiple">
+									<option th:each="book: ${bookList}" th:value="${book.id}"
+										th:text="${book.title}" />
+								</select> <input type="hidden" th:field="*{orderDate}"
+									th:value="${newOrder.orderDate}">
+							</div>
+							<div class="form-group col-md-8">
+								<label for="address" class="col-form-label">Type your address</label> <input
+									type="text" th:field="*{address}" class="form-control"
+									id="address" placeholder="Address" /> <span
+									th:if="${#fields.hasErrors('address')}" th:errors="*{address}"
+									class="textdanger"></span>
+							</div>
+
+							<div class="col-md-6">
+								<input type="submit" class="btn btn-primary" value="Order Books" />
+							</div>
+							<div class="form-group col-md-8"></div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
