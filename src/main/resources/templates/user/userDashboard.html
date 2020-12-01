@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<title>Dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png"
+	href="/loginx/images/icons/favicon.ico" />
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/vendor/animate/animate.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css"
+	href="/loginx/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="/loginx/css/util.css">
+<link rel="stylesheet" type="text/css" href="/loginx/css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	<div class="limiter">
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3"
+			id="mainNav">
+			<div class="container">
+				<a class="navbar-brand js-scroll-trigger" href="#page-top"
+					style="color: white">NRG BookStore</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button"
+					data-toggle="collapse" data-target="#navbarResponsive"
+					aria-controls="navbarResponsive" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav ml-auto my-2 my-lg-0"></ul>
+					<a th:href="@{/logout}"
+						class="navbar-brand js-scroll-trigger btn btn-danger"
+						style="color: white">Logout</a>
+				</div>
+			</div>
+		</nav>
+		<div class="container-login100"
+			style="background-image: url('/loginx/images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+				<div th:switch="${role}">
+
+					<div th:case="'[USER]'">
+
+						<div class="card text-center">
+							<div class="card-header">NRG BookStore</div>
+							<div class="card-body">
+								<p class="card-text">Enjoy the latest book releases with one
+									click.</p>
+								<a href="/orders/add/" class="btn btn-primary">Order now !</a>
+							</div>
+							<div class="card-footer text-muted"></div>
+						</div>
+					</div>
+					
+					
+
+					<div class="admin" th:case="'[ADMIN]'">
+					<div class="cards" style="display:flex">
+						<div class="card text-center">
+							<div class="card-header">Book List</div>
+							<div class="card-body">
+								<p class="card-text">Check your book list now.</p>
+								<a href="/book/list/" class="btn btn-primary">Check now !</a>
+							</div>
+							<div class="card-footer text-muted"></div>
+						</div>
+						<div class="card text-center">
+							<div class="card-header">Order List</div>
+							<div class="card-body">
+								<p class="card-text">Manage your order list now.</p>
+								<a href="/orders/list/" class="btn btn-primary">Check now !</a>
+							</div>
+							<div class="card-footer text-muted"></div>
+						</div>
+						<div class="card text-center">
+							<div class="card-header">User Account</div>
+							<div class="card-body">
+								<p class="card-text">Manage your list of users now </p>
+								<a href="/accounts/list/" class="btn btn-primary">Manage now !</a>
+							</div>
+							<div class="card-footer text-muted"></div>
+						</div>
+						<div class="card text-center">
+							<div class="card-header">Managing Roles</div>
+							<div class="card-body">
+								<p class="card-text">Give your users a role now !.</p>
+								<a href="/role/list/" class="btn btn-primary">Manage now !</a>
+							</div>
+							<div class="card-footer text-muted"></div>
+						</div>
+					</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="dropDownSelect1"></div>
+
+	<!--===============================================================================================-->
+	<script src="/loginx/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/loginx/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/loginx/vendor/bootstrap/js/popper.js"></script>
+	<script src="/loginx/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/loginx/vendor/select2/select2.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="/loginx/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/loginx/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="/loginx/vendor/countdowntime/countdowntime.js"></script>
+	<!--===============================================================================================-->
+	<script src="/loginx/js/main.js"></script>
+</body>
+</html>

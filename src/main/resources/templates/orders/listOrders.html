@@ -35,6 +35,10 @@
 	<div class="limiter">
 		<div class="container-table100">
 			<div th:switch="${orders}" class="wrap-table100">
+			<p class="my-3">
+					<a th:href="@{'/accounts/dashboard'}" class="btn btn-danger"><i
+						class="fas fa-arrow-circle-left"> Back to dashboard</i></a>
+				</p>
 				<p class="my-3">
 					<a th:href="@{'/orders/add/'}" class="btn btn-primarys"><i
 						class="fas fa-user-plus ml-2"> Add a new order</i></a>

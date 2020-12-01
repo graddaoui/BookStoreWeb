@@ -1,6 +1,5 @@
 package com.vermeg.bookstore.controllers;
 
-import com.vermeg.bookstore.entities.Book;
 import com.vermeg.bookstore.entities.Order;
 import com.vermeg.bookstore.repositories.BookRepository;
 import com.vermeg.bookstore.repositories.OrderRepository;
@@ -11,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.time.LocalDate;
-import java.util.List;
 
 @Controller
 @RequestMapping("/orders")

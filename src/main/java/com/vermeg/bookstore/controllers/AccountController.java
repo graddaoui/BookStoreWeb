@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.vermeg.bookstore.entities.User;
 import com.vermeg.bookstore.entities.Role;
@@ -18,7 +20,8 @@ import com.vermeg.bookstore.repositories.RoleRepository;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import javax.mail.MessagingException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Controller
 @RequestMapping("/accounts/")
@@ -38,6 +41,7 @@ public class AccountController {
         this.roleRepository = roleRepository;
     }
 	
+	//@ResponseBody
 	@GetMapping("list")
     public String listUsers(Model model) {
     	
@@ -111,6 +115,17 @@ public class AccountController {
         }
         javaMailSender.send(msg);
 
+    }
+	
+	@RequestMapping(value={"/dashboard"}, method = RequestMethod.GET)
+    public ModelAndView accueil(Authentication authentication  ){
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        
+        String role = userDetails.getAuthorities().toString();
+    	ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("user/userDashboard");
+        modelAndView.addObject("role",role);
+        return modelAndView;
     }
 
 

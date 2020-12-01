@@ -32,12 +32,19 @@
 </head>
 <body>
 	<div class="limiter">
+	
 		<div class="container-table100">
+		
 			<div th:switch="${books}" class="wrap-table100">
+			<p class="my-3">
+					<a th:href="@{'/accounts/dashboard'}" class="btn btn-danger"><i
+						class="fas fa-arrow-circle-left"> Back to dashboard</i></a>
+				</p>
 				<p class="my-3">
 					<a th:href="@{'/book/add/'}" class="btn btn-primarys"><i
 						class="fas fa-user-plus ml-2"> Add a new book</i></a>
 				</p>
+				
 					<h2 th:case="null">No Books yet!</h2>
 				<div th:case="*" class="table100 ver1 m-b-110">
 					<div class="table100-head">

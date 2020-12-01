@@ -27,7 +27,7 @@
 						<h2 th:case="null">No Role yet!</h2>
 						<div th:case="*">
 						
-						<h2>Nombre total des Users= <span th:text="${nbr}">10</span></h2>
+						<h2>Total number of users =  <span th:text="${nbr}">10</span></h2>
 							<table class="table table-striped table-responsive-md">
 								<thead>
 									<tr>
@@ -46,7 +46,7 @@
 										<td th:text="${user.id}"></td>
 										<td th:text="${user.name}"></td>
 										<td th:text="${user.email}"></td>
-										<td th:text="${user.roles[0].role}"></td>
+										<td th:text="${user.roles.role}"></td>
 										<td>
 										<form method="post" th:action="@{/accounts/updateRole}">
 											<select name="newrole" class="form-control">

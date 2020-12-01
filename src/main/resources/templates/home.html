@@ -27,8 +27,8 @@
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
-                      
-                        <div th:replace="fragments/header::header"/>
+                      <a href="/login" class="navbar-brand js-scroll-trigger">Login</a>
+<!--                         <div th:replace="fragments/header::header"/> -->
                     </ul>
                 </div>
             </div>
@@ -53,15 +53,11 @@
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5">George R.R. Martin</p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/book/list/">Books</a>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/orders/list/">Orders</a>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/accounts/list">Accounts</a>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="/role/list/">Roles</a>
                     </div>  
                 </div>
             </div>
         </header>
     </div>
-    <div th:replace="fragments/footer::footer"/>
+<!--     <div th:replace="fragments/footer::footer"/> -->
     </body>
 </html>
