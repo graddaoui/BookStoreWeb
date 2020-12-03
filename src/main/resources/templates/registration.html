@@ -1,71 +1,166 @@
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en" xmlns="http://www.w3.org/1999/xhtml" -->
+<!-- 	xmlns:th="http://www.thymeleaf.org"> -->
+<!-- <head> -->
+<!-- 	<title>Registration Form</title> -->
+<!-- 	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" /> -->
+<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<!--   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+<!--   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+<!-- </head> -->
+<!-- <body> -->
+<!-- 	<form th:action="@{/}" method="get"> -->
+<!-- 		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button> -->
+<!-- 	</form>	 -->
+<!-- 		<div class="container"> -->
+<!-- 		<div class="row"> -->
+<!-- 			<div class="col-md-6 col-md-offset-3"> -->
+<!-- 				<form autocomplete="off" action="#" th:action="@{/registration}" -->
+<!-- 					th:object="${user}" method="post" class="form-horizontal" -->
+<!-- 					role="form"> -->
+<!-- 					<h2>Registration Form</h2> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<div class="col-sm-9"> -->
+<!-- 						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}" -->
+<!-- 								class="validation-message"></label> -->
+<!-- 						<input type="text" th:field="*{name}" placeholder="Name" -->
+<!-- 								class="form-control" />  -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+<!-- 					<div class="form-group"> -->
+<!-- 						<div class="col-sm-9"> -->
+<!-- 						<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" -->
+<!-- 								class="validation-message"></label> -->
+<!-- 							<input type="text" th:field="*{lastName}" -->
+<!-- 								placeholder="Last Name" class="form-control" />  -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="form-group"> -->
+<!-- 						<div class="col-sm-9"> -->
+<!-- 							<input type="text" th:field="*{email}" placeholder="Email" -->
+<!-- 								class="form-control" /> <label -->
+<!-- 								th:if="${#fields.hasErrors('email')}" th:errors="*{email}" -->
+<!-- 								class="validation-message"></label> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- <div class="form-group"> -->
+<!-- 						<div class="col-sm-9"> -->
+<!-- 							<input type="password" th:field="*{password}" -->
+<!-- 								placeholder="Password" class="form-control" /> <label -->
+<!-- 								th:if="${#fields.hasErrors('password')}" th:errors="*{password}" -->
+<!-- 								class="validation-message"></label> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+
+<!-- 					<div class="form-group"> -->
+<!-- 						<div class="col-sm-9"> -->
+<!-- 							<button type="submit" class="btn btn-primary btn-block">Register User</button> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+					
+<!-- 					<span th:utext="${successMessage}"></span> -->
+					
+					
+<!-- 				</form> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
+
+<!-- </body> -->
+<!-- </html> -->
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>Registration Form</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/css/registration.css}" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<title>Register page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/loginx/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/loginx/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/loginx/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/loginx/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/loginx/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/loginx/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/loginx/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/loginx/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/loginx/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/loginx/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/loginx/css/main.css">
+<!--===============================================================================================-->
 </head>
 <body>
-	<form th:action="@{/}" method="get">
-		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-	</form>	
-		<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<form autocomplete="off" action="#" th:action="@{/registration}"
-					th:object="${user}" method="post" class="form-horizontal"
-					role="form">
-					<h2>Registration Form</h2>
-					<div class="form-group">
-						<div class="col-sm-9">
-						<label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-								class="validation-message"></label>
-						<input type="text" th:field="*{name}" placeholder="Name"
-								class="form-control" /> 
-						</div>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/loginx/images/bg-01.jpg');">
+			<div class="wrap-login100 p-t-30 p-b-50">
+			<form th:action="@{/login}" method="get">
+ 		<button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
+ 	</form>
+				<span class="login100-form-title p-b-41">
+					Register new account
+				</span>
+				
+
+<form autocomplete="off" action="#" th:action="@{/registration}" 
+ 					th:object="${user}" method="post" class="form-horizontal login100-form validate-form p-b-33 p-t-5"
+ 					role="form">
+ 					<div class="wrap-input100 validate-input" data-validate = "Enter name">
+						<input class="input100" type="text" name="name" id="name" placeholder="Name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter last name">
+						<input class="input100" type="text" name="lastName" id="name" placeholder="Last name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="email" id="email" placeholder="Email">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
 					</div>
 
-					<div class="form-group">
-						<div class="col-sm-9">
-						<label	th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-								class="validation-message"></label>
-							<input type="text" th:field="*{lastName}"
-								placeholder="Last Name" class="form-control" /> 
-						</div>
-					</div>
-					<div class="form-group">
-						<div class="col-sm-9">
-							<input type="text" th:field="*{email}" placeholder="Email"
-								class="form-control" /> <label
-								th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-								class="validation-message"></label>
-						</div>
-					</div>
-<div class="form-group">
-						<div class="col-sm-9">
-							<input type="password" th:field="*{password}"
-								placeholder="Password" class="form-control" /> <label
-								th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-								class="validation-message"></label>
-						</div>
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="password" id="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 
-					<div class="form-group">
-						<div class="col-sm-9">
-							<button type="submit" class="btn btn-primary btn-block">Register User</button>
-						</div>
+					<div class="container-login100-form-btn m-t-32">
+						<button name="Submit" value="Login" type="Submit" th:text="Signup" class="login100-form-btn">
 					</div>
-					
-					<span th:utext="${successMessage}"></span>
-					
-					
+
 				</form>
+				<span style="color:white" th:utext="${successMessage}"></span> 
 			</div>
 		</div>
 	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="/loginx/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/loginx/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/loginx/vendor/bootstrap/js/popper.js"></script>
+	<script src="/loginx/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/loginx/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/loginx/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/loginx/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/loginx/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/loginx/js/main.js"></script>
 
 </body>
 </html>
