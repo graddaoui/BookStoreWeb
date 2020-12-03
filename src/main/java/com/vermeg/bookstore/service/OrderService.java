@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import com.vermeg.bookstore.entities.Book;
 
-@Service("orderService")
+@Service()
 
 public class OrderService {
 	public double computeTotalPrice(List<Book> lb) {

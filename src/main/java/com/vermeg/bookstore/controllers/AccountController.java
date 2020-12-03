@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.vermeg.bookstore.entities.User;
 import com.vermeg.bookstore.entities.Role;
 import com.vermeg.bookstore.repositories.UserRepository;
+import com.vermeg.bookstore.repositories.BookRepository;
 import com.vermeg.bookstore.repositories.RoleRepository;
 
 import org.springframework.mail.SimpleMailMessage;
@@ -27,7 +28,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @RequestMapping("/accounts/")
 
 public class AccountController {
-	
+	private final BookRepository bookRepository;
 	@Autowired
     private JavaMailSender javaMailSender;
 
@@ -36,9 +37,10 @@ public class AccountController {
 	private final UserRepository userRepository;
 	private final RoleRepository roleRepository;
 	@Autowired
-    public AccountController(UserRepository userRepository,RoleRepository roleRepository) {
+    public AccountController(UserRepository userRepository,RoleRepository roleRepository , BookRepository bookRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
+        this.bookRepository = bookRepository ;
     }
 	
 	//@ResponseBody
@@ -125,6 +127,7 @@ public class AccountController {
     	ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("user/userDashboard");
         modelAndView.addObject("role",role);
+        modelAndView.addObject("books",bookRepository.findAll());
         return modelAndView;
     }
 

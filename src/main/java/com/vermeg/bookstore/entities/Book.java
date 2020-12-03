@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "books")
 public class Book {
@@ -39,6 +41,7 @@ public class Book {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "release_date")
 	private LocalDate releaseDate;
+	@JsonIgnore
 	@ManyToMany(mappedBy = "books", fetch = FetchType.LAZY)
 	Set<Order> orders = new HashSet<>();
 
