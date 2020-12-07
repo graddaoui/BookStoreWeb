@@ -1,0 +1,60 @@
+
+.books-section {
+    position: absolute;
+    left: 20px;
+    top: 70px;
+}
+.books {
+    display: inline-block;
+    color: #f5f5f5;
+    margin-bottom: 50px;
+    margin-right: 50px;
+}
+
+.books li {
+    line-height: 120%;
+}
+
+.books .cover img {
+    width: 140px;
+    height: 220px;
+}
+
+.books .title {
+    font-weight: bold;
+    font-size: large;
+}
+
+.book-details {
+    margin-top: 100px;
+}
+
+.book-details-left {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    text-align:center;
+}
+.book-details-right {
+    display: inline-block;
+    width: 50%;
+    float: right;
+    margin-top: 60px;
+    font-size: 32px;
+}
+
+.book-details-left img {
+    width: 280px;
+    height: 440px;
+}
+
+.book-back {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('/loginx/images/bg-01.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.book-details-right span {
+    display: block;
+    margin-bottom: 20px;
+    color: white;
+}

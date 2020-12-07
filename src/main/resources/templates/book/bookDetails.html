@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="/css/books.css">
     <!--===============================================================================================-->
 </head>
-<body>
+<body class="book-back">
 <div class="limiter">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3"
          id="mainNav">
@@ -54,87 +54,27 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto my-2 my-lg-0"></ul>
-                <a th:if="${role == '[USER]'}"
-                   href="/orders/add/"
-                   class="navbar-brand js-scroll-trigger btn btn-primary"
-                   style="color: white">Order Now</a>
                 <a th:href="@{/logout}"
                    class="navbar-brand js-scroll-trigger btn btn-danger"
                    style="color: white">Logout</a>
             </div>
         </div>
     </nav>
-    <div th:switch="${role}">
-        <div class="container-login100"
-             style="background-image: url('/loginx/images/bg-01.jpg');"
-             th:case="'[USER]'"
-        >
 
-            <!--						<div class="card text-center">-->
-            <!--							<div class="card-header">NRG BookStore</div>-->
-            <!--							<div class="card-body">-->
-            <!--								<p class="card-text">Enjoy the latest book releases with one-->
-            <!--									click.</p>-->
-            <!--								<a href="/orders/add/" class="btn btn-primary">Order now !</a>-->
-            <!--							</div>-->
-            <!--							<div class="card-footer text-muted"></div>-->
-            <!--						</div>-->
-            <div class="books-section">
-
-                <ul class="books" th:each="book : ${books}">
-                    <li class="cover"><a th:href="@{/book/bookDetails/{id}(id=${book.id})}"><img th:src="@{/uploads/} + ${book.cover}"></a></li>
-                    <li class="title" th:text="${book.title}"></li>
-                    <li class="author" th:text="'by ' + ${book.author}"></li>
-                </ul>
-
-            </div>
+    <div class="book-details">
+        <div class="book-details-left">
+            <img th:src="@{'/uploads/'+ ${book.cover}}" />
         </div>
-        <div class="container-login100"
-             style="background-image: url('/loginx/images/bg-01.jpg');"
-             th:case="'[ADMIN]'">
-            <div class="wrap-login100 p-t-30 p-b-50">
 
-                <div class="admin">
-                    <div class="cards" style="display:flex">
-                        <div class="card text-center">
-                            <div class="card-header">Book List</div>
-                            <div class="card-body">
-                                <p class="card-text">Check your book list now.</p>
-                                <a href="/book/list/" class="btn btn-primary">Check now !</a>
-                            </div>
-                            <div class="card-footer text-muted"></div>
-                        </div>
-                        <div class="card text-center">
-                            <div class="card-header">Order List</div>
-                            <div class="card-body">
-                                <p class="card-text">Manage your order list now.</p>
-                                <a href="/orders/list/" class="btn btn-primary">Check now !</a>
-                            </div>
-                            <div class="card-footer text-muted"></div>
-                        </div>
-                        <div class="card text-center">
-                            <div class="card-header">User Account</div>
-                            <div class="card-body">
-                                <p class="card-text">Manage your list of users now </p>
-                                <a href="/accounts/list/" class="btn btn-primary">Manage now !</a>
-                            </div>
-                            <div class="card-footer text-muted"></div>
-                        </div>
-                        <div class="card text-center">
-                            <div class="card-header">Managing Roles</div>
-                            <div class="card-body">
-                                <p class="card-text">Give your users a role now !.</p>
-                                <a href="/role/list/" class="btn btn-primary">Manage now !</a>
-                            </div>
-                            <div class="card-footer text-muted"></div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
+        <div class="book-details-right">
+            <span class="title" th:text="${book.title}">Title</span>
+            <span class="author" th:text="${book.author}">Author</span>
+            <span class="release" th:text="${book.releaseDate}">Release</span>
+            <span class="price" th:text="${book.price}">Price</span>
         </div>
     </div>
+
+
 </div>
 <div id="dropDownSelect1"></div>
 

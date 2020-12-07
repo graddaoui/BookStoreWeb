@@ -42,10 +42,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 				
 //				.antMatchers("/orders/add/").hasAnyAuthority("USER","ADMIN")
 				.antMatchers("/orders/**").permitAll()
-				
-                .antMatchers("/book/**").hasAnyAuthority("ADMIN").anyRequest()
+				.antMatchers("/book/bookDetails/**").permitAll()
+                .antMatchers("/book/**").hasAnyAuthority("ADMIN")
 
-				.authenticated().and().csrf().disable().formLogin() 
+				.anyRequest().authenticated().and().csrf().disable().formLogin()
 
 				.loginPage("/login").failureUrl("/login?error=true") 
 
