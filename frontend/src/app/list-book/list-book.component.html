@@ -1,4 +1,4 @@
-<table class = "table table-striped">
+<!--<table class = "table table-striped">
     <thead>
         <tr>
             <th> Id </th>
@@ -20,3 +20,26 @@
         </tr>
     </tbody>
 </table>
+-->
+<body>
+<div *ngFor = "let book of books" class="list-cards">
+    <mat-card class="card">
+        <mat-card-header >
+          <div mat-card-avatar class="card-header-image"></div>
+          <mat-card-title>{{ book.title }}</mat-card-title>
+          <br>
+          <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+          <img mat-card-image src="{{ path + book.cover }}" width="198" height="220" alt="{{ book.title }}">
+        </mat-card-header>
+       
+        <mat-card-content>
+         <p> Release Date : {{ book.releaseDate }}</p>
+         <p>Book Price : {{ book.price }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-raised-button >View Details</button>
+          <button mat-raised-button>Order Now</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
+</body>
