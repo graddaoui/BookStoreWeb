@@ -15,4 +15,10 @@ export class BookService {
   getBooksList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+  getBook(id) {
+    return this.http.get(this.baseUrl +'/'+id);
+  }
+  updateBook(myObj) {
+    return this.http.put(this.baseUrl + '/update/' + myObj['id'], myObj);
+    }
 }

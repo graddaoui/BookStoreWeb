@@ -1,12 +1,14 @@
 package com.vermeg.bookstore.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 
 import com.vermeg.bookstore.entities.Book;
 import com.vermeg.bookstore.repositories.BookRepository;
@@ -29,6 +31,10 @@ public class RestBookController {
     @GetMapping("")
     public List<Book> getAllBooks() {
         return (List<Book>) bookRepository.findAll();
+    }
+    @GetMapping("/{bookId}")
+    public Optional<Book> getBook(@PathVariable long bookId) {
+        return  bookRepository.findById(bookId);
     }
 
     @PostMapping("/add")

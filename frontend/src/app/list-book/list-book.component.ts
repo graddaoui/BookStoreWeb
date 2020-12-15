@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Book } from '../models/book';
 import { BookService } from '../services/book.service';
 
@@ -13,16 +14,21 @@ export class ListBookComponent implements OnInit {
 
   books: Book[];
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService , private router : Router) { }
 
   ngOnInit(): void {
     this.getBooks();
+   
   }
 
   private getBooks(){
     this.bookService.getBooksList().subscribe(data => {
       this.books = data;
+      
     });
   }
+  updateBook(myObj) {
+    this.router.navigate(['updateBook' + '/' + myObj['id']]);
+    }
 
 }

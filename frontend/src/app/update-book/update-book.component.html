@@ -1,0 +1,30 @@
+<p>Update your Book</p>
+
+<form (ngSubmit)="updateBook()" >
+<div class="form-group">
+<label for="BookTitle">Book Title </label>
+<input [(ngModel)] = "title" name="BookTitle" size="20" type="text" class="form-control" id="bookTitle" />
+</div>
+<div class="form-group">
+<label for="BookPrice">Price </label>
+<input [(ngModel)] = "price" name="BookPrice" size="20" type="text" class="form-control" id="bookPrice" />
+</div>
+<div class="form-group">
+    <label for="BookAuthor">Author</label>
+    <input [(ngModel)] = "author" name="BookAuthor" size="20" type="text" class="form-control" id="bookAuthor" />
+    </div>
+    <div class="form-group">
+        <label for="BookCover">Book Photo</label>
+        <input [(ngModel)] = "cover" name="BookCover" size="20" type="text" class="form-control" id="bookCover" disabled/>
+        </div>
+    <div class="form-group">
+        <label for="BookReleaseDate">Book Release Date</label>
+        <input [(ngModel)] = "date" name="BookReleaseDate" size="20" type="date" class="form-control" id="bookReleaseDate" />
+        </div>
+<!--<div class="form-group">
+<label for="BookPicture">Book Photo</label>
+<input [(ngModel)] = "picture" name="BookPicture" size="20" type="text" class="form-control" id="bookPicture" />
+</div>-->
+<input [(ngModel)]="id" name="BookId" type="hidden"/>
+<button class="btn btn-primary">Update</button>
+</form>

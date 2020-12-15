@@ -37,7 +37,7 @@
          <p>Book Price : {{ book.price }}</p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-raised-button >View Details</button>
+            <button (click)="updateBook(book)" class="btn btn-warning">Update</button>
           <button mat-raised-button>Order Now</button>
         </mat-card-actions>
       </mat-card>
