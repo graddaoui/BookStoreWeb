@@ -21,25 +21,27 @@
     </tbody>
 </table>
 -->
+
 <body>
-<div *ngFor = "let book of books" class="list-cards">
-    <mat-card class="card">
-        <mat-card-header >
-          <div mat-card-avatar class="card-header-image"></div>
-          <mat-card-title>{{ book.title }}</mat-card-title>
-          <br>
-          <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
-          <img mat-card-image src="{{ path + book.cover }}" width="198" height="220" alt="{{ book.title }}">
-        </mat-card-header>
-       
-        <mat-card-content>
-         <p> Release Date : {{ book.releaseDate }}</p>
-         <p>Book Price : {{ book.price }}</p>
-        </mat-card-content>
-        <mat-card-actions>
-            <button (click)="updateBook(book)" class="btn btn-warning">Update</button>
-          <button mat-raised-button>Order Now</button>
-        </mat-card-actions>
-      </mat-card>
-</div>
+    <div *ngFor="let book of books" class="list-cards">
+        <mat-card class="card">
+            <mat-card-header>
+                <div mat-card-avatar class="card-header-image"></div>
+                <mat-card-title>{{ book.title }}</mat-card-title>
+                <br>
+                <mat-card-subtitle>{{ book.author }}</mat-card-subtitle>
+                <img mat-card-image src="{{ path + book.cover }}" width="198" height="220" alt="{{ book.title }}">
+            </mat-card-header>
+
+            <mat-card-content>
+                <p> Release Date : {{ book.releaseDate }}</p>
+                <p>Book Price : {{ book.price }}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button (click)="updateBook(book)" class="btn btn-warning card-button">Update</button>
+                <button (click)="deleteBook(book)" class="btn btn-danger card-button">Delete</button>
+                <button mat-raised-button class="btn btn-primary card-button">Order Now</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </body>

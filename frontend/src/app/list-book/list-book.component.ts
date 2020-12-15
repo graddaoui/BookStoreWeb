@@ -10,25 +10,28 @@ import { BookService } from '../services/book.service';
 })
 export class ListBookComponent implements OnInit {
 
-  path:string = 'http://localhost:8080/uploads/';
+  path: string = 'http://localhost:8080/uploads/';
 
   books: Book[];
 
-  constructor(private bookService: BookService , private router : Router) { }
+  constructor(private bookService: BookService, private router: Router) { }
 
   ngOnInit(): void {
     this.getBooks();
-   
+
   }
 
-  private getBooks(){
+  private getBooks() {
     this.bookService.getBooksList().subscribe(data => {
       this.books = data;
-      
+
     });
   }
   updateBook(myObj) {
     this.router.navigate(['updateBook' + '/' + myObj['id']]);
-    }
+  }
 
+  deleteBook(book) {
+    this.bookService.deleteBook(book).subscribe(response => this.getBooks())
+  }
 }
