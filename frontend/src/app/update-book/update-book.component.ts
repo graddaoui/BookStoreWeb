@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Book } from '../models/book';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -27,13 +26,11 @@ export class UpdateBookComponent implements OnInit {
       );
       this.bookToUpdate = this.service.getBook(this.id).subscribe(
       response => {
-      //console.log(response);
       this.title = response["title"];
       this.price = response["price"];
       this.author = response["author"];
       this.cover = response["cover"];
       this.date = response["releaseDate"];
-      console.log(response);
       }
       );
       

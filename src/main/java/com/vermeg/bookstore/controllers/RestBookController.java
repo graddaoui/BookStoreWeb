@@ -15,7 +15,7 @@ import com.vermeg.bookstore.repositories.BookRepository;
 import com.vermeg.bookstore.service.*;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping({"/api/books"})
 public class RestBookController {
     private final BookRepository bookRepository;
