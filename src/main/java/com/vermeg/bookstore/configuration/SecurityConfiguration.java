@@ -61,6 +61,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/book/bookDetails/**").permitAll()
                 .antMatchers("/book/**").hasAnyAuthority("ADMIN")
                 .antMatchers("/api/books/**").permitAll()
+                .antMatchers("/api/files/**").permitAll()
                 .anyRequest().authenticated().and().csrf().disable().formLogin()
                 .loginPage("/login").failureUrl("/login?error=true")
                 .defaultSuccessUrl("/accounts/dashboard")

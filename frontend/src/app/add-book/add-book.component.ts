@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from './../services/book.service';
 import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-book',
@@ -8,29 +9,33 @@ import { Router } from '@angular/router';
   styleUrls: ['./add-book.component.css']
 })
 export class AddBookComponent implements OnInit {
-  selectedFile: File;
+  public cover;
+
   constructor(private service: BookService, private router: Router) { }
+
   ngOnInit() {
   }
 
-  onFileChanged(event) {
-    this.selectedFile = event.target.files[0]
-  }
-
-  onUpload() {
-    // this.http is the injected HttpClient
-  const uploadData = new FormData();
-  uploadData.append('myFile', this.selectedFile, this.selectedFile.name);
-  console.log(uploadData);
-  }
 
   createBook(myform) {
+
+    const ctrl = new FormControl(this.cover.name);
+    myform.form.addControl('cover', ctrl);
+
+    this.service.upload(this.cover).subscribe(data => {
+
+    });
+
+    
     this.service.createBook(myform).subscribe(
       response => {
-        console.log(response);
+        this.router.navigate(['listBooks']);
       }
     );
-    this.router.navigate(['listBooks']);
+  }
+
+  changeCover(event) {
+    this.cover = event.target.files[0];
   }
 
 }

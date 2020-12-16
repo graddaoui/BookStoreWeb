@@ -14,8 +14,8 @@
     <input [(ngModel)] = "author" name="BookAuthor" size="20" type="text" class="form-control" id="bookAuthor" />
     </div>
     <div class="form-group">
-        <label for="BookCover">Book Photo</label>
-        <input [(ngModel)] = "cover" name="BookCover" size="20" type="text" class="form-control" id="bookCover" disabled/>
+        <label for="BookCover">Cover</label>
+        <input type="file" (change)="changeCover($event)" class="form-control"/>
         </div>
     <div class="form-group">
         <label for="BookReleaseDate">Book Release Date</label>
