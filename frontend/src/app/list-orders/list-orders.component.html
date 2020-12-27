@@ -1,0 +1,24 @@
+<body>
+    <h2 align="center">Liste des providers</h2>
+    <div>
+      
+        <table class="table" border="2">
+            <tr>
+                <th>Id</th>
+                <th>Order Date</th>             
+                <th>Adress</th>
+                <th>Details</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            <tr *ngFor="let order of orders">
+                <td>{{order.id}}</td>
+                <td>{{order.orderDate}}</td>
+                <td>{{order.address}}</td>
+                <td><button  class="btn btn-primary" (click)="orderDetail(order)">Order Details</button></td>
+                <td><button (click)="deleteProvider(provider)" class="btn btn-danger">Supprimer</button></td>
+                <td><button (click)="updateProvider(provider)" class="btn btn-warning">Modifier</button></td>
+            </tr>
+        </table>
+    </div>
+</body>

@@ -1,0 +1,28 @@
+
+.card {
+    max-width: 200px;
+   
+    box-shadow: 2px 4px 20px 0 blue !important;
+    background-color: beige;
+    
+   
+  }
+  
+  .list-cards > mat-card {
+    width: 200px;
+   
+}
+.list-cards
+{
+    display: inline-block !important;
+    padding: 20px;
+}
+body{
+    background-color: #fff;
+    
+    margin: 0 auto;
+}
+
+.card-button {
+    margin-right: 5px;
+}

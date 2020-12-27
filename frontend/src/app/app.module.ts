@@ -9,6 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UpdateBookComponent } from './update-book/update-book.component';
 import { AddBookComponent } from './add-book/add-book.component';
+import { ListOrdersComponent } from './list-orders/list-orders.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { AddBookComponent } from './add-book/add-book.component';
     ListBookComponent,
     NavbarComponent,
     UpdateBookComponent,
-    AddBookComponent
+    AddBookComponent,
+    ListOrdersComponent,
+    OrderDetailsComponent
   ],
   imports: [
     BrowserModule,
